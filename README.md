@@ -9,6 +9,7 @@
 ## Description
 
 This is a bunch of CSS code to make Firefox look closer to MacOSX Safari theme.
+
 Based on https://github.com/rafaelmardojai/firefox-gnome-theme
 
 ## Installation
