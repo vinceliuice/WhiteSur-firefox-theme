@@ -25,6 +25,10 @@ Run `./install.sh -f monterey`
 
 ![01](https://github.com/vinceliuice/WhiteSur-gtk-theme/blob/pictures/pictures/firefox-monterey.png?raw=true)
 
+
+### MacOS and Windows version
+AdamXweb - WhiteSurFirefoxThemeMacOS: https://github.com/AdamXweb/WhiteSurFirefoxThemeMacOS
+
 ### Manual installation
 
 1. Go to `about:support` in Firefox.
