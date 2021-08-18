@@ -200,10 +200,6 @@ tab[selected]:-moz-window-inactive {
 } */
 
 /* Close tab button */
-:root {
-	--gnome-fill-icon: red !important;
-}
-
 .close-icon {
 	height: 16px !important;
 	padding: 0 !important;
@@ -228,6 +224,7 @@ tab[selected]:-moz-window-inactive {
 		list-style-image: url("../icons/window-close-symbolic-light.svg") !important;
 	}
 }
+
 :root:-moz-window-inactive .tab-close-button:not(#hack) {
 	opacity: .18 !important;
 }
@@ -253,11 +250,6 @@ tab[selected]:-moz-window-inactive {
 /* Remove blue line above tabs */
 .tab-line {
 	display: none;
-}
-
-/* Move container lines to the top */
-.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background {
-	border-top: 3px solid var(--identity-tab-color) !important;
 }
 
 /* Remove alt colours references for multi tabs*/
