@@ -64,14 +64,15 @@ helpify_title() {
 }
 
 helpify() {
-  printf "  ${c_blue}%s ${c_green}%s\n ${c_magenta}%s. ${c_cyan}%s\n\n${c_default}" "${1}"
+  printf "  ${c_blue}%s ${c_green}%s\n ${c_magenta}%s. ${c_cyan}%s\n\n${c_default}" "${1}" "${2}" "${3}" "${4}"
 }
 
 usage() {
   helpify_title
-  helpify "-f, --firefox"      "[default|monterey]"                                "Install '${THEME_NAME}|Monterey' theme for Firefox and connect it to the current Firefox profiles" "Default is ${THEME_NAME}"
-  helpify "-e, --edit-firefox" ""                                                  "Edit '${THEME_NAME}' theme for Firefox settings and also connect the theme to the current Firefox profiles" ""
-  helpify "-h, --help"         ""                                                  "Show this help"                                                              ""
+  helpify "-m, --monterey"          ""                                   "Install 'Monterey' theme for Firefox and connect it to the current Firefox profiles"                        ""
+  helpify "-e, --edit"              ""                                   "Edit '${THEME_NAME}' theme for Firefox settings and also connect the theme to the current Firefox profiles" ""
+  helpify "-r, --remove, --revert"  ""                                   "Remove themes, do the opposite things of install and connect"                                               ""
+  helpify "-h, --help"              ""                                   "Show this help"                                                                                             ""
 }
 
 install_firefox_theme() {
@@ -166,45 +167,29 @@ while [[ $# -gt 0 ]]; do
   # at once
 
   case "${1}" in
-      # Parameters that don't require value
+    -m|--monterey)
+      monterey="true"
+      THEME_NAME="Monterey"
+      shift ;;
     -r|--remove|--revert)
       uninstall='true'; shift ;;
     -h|--help)
-      need_help="true"; shift ;;
-    -f|--firefox|-e|--edit-firefox)
-      case "${1}" in
-        -f|--firefox)
-          firefox="true" ;;
-        -e|--edit-firefox)
-          edit_firefox="true" ;;
-      esac
-
-      for variant in "${@}"; do
-        case "${variant}" in
-          default)
-            shift 1
-            ;;
-          monterey)
-            monterey="true"
-            THEME_NAME="Monterey"
-            shift 1
-            ;;
-        esac
-      done
+      echo; usage; echo
+      exit 0 ;;
+    -e|--edit)
+      edit_firefox='true'
 
       if ! has_command firefox && ! has_flatpak_app org.mozilla.firefox && ! has_snap_app firefox; then
         prompt -e "'${1}' ERROR: There's no Firefox installed in your system"
-        has_any_error="true"
       elif [[ ! -d "${FIREFOX_DIR_HOME}" && ! -d "${FIREFOX_FLATPAK_DIR_HOME}" && ! -d "${FIREFOX_SNAP_DIR_HOME}" ]]; then
         prompt -e "'${1}' ERROR: Firefox is installed but not yet initialized."
         prompt -w "'${1}': Don't forget to close it after you run/initialize it"
       elif pidof "firefox" &> /dev/null || pidof "firefox-bin" &> /dev/null; then
         prompt -e "'${1}' ERROR: Firefox is running, please close it"
-        has_any_error="true"
       fi; shift ;;
     *)
       prompt -e "ERROR: Unrecognized tweak option '${1}'."
-      has_any_error="true"; shift ;;
+      shift ;;
   esac
 done
 
