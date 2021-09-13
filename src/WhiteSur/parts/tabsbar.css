@@ -96,6 +96,7 @@ tab[selected]:-moz-window-inactive {
 /* Center all inside tab */
 .tab-content {
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	margin-top: -1px;
@@ -118,9 +119,9 @@ tab[selected]:-moz-window-inactive {
 .tab-icon-sound[activemedia-blocked="true"] {
 	margin-left: auto !important;
 }
-.tabbrowser-tab:not([soundplaying]):not([muted]):not([activemedia-blocked]) .tab-close-button {
-	margin-left: auto !important;
-}
+/*.tabbrowser-tab:not([soundplaying]):not([muted]):not([activemedia-blocked]) .tab-close-button {*/
+/*	margin-left: auto !important;*/
+/*}*/
 .tab-icon-sound {
 	margin-right: 6px;
 }
@@ -140,6 +141,7 @@ tab[selected]:-moz-window-inactive {
 /* If tab favicon is not present, force tab label to the center */
 .tabbrowser-tab .tab-label-container {
 	margin-left: 0 !important;
+	margin-right: auto !important;
 }
 
 .tabbrowser-tab:not([image]):not([busy]):not([progress]) .tab-label-container {
@@ -217,6 +219,14 @@ tab[selected]:-moz-window-inactive {
 	opacity: .3;
 	padding: 0;
 	width: 16px;
+}
+
+.tabbrowser-tab > .tab-stack > .tab-content > .tab-close-button {
+	visibility: hidden;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-content > .tab-close-button {
+	visibility: visible;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -355,7 +365,6 @@ tab[selected]:-moz-window-inactive {
 }
 
 /* fix spacing on too many tabs */
-
 .tab-icon-overlay:not([pinned], [sharing]),
 [pictureinpicture] {
 	margin-inline-end: 4px !important;

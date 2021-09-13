@@ -72,6 +72,14 @@
 	width: 16px;
 }
 
+.tabbrowser-tab > .tab-stack > .tab-content > .tab-close-button {
+	visibility: hidden;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-content > .tab-close-button {
+	visibility: visible;
+}
+
 @media (prefers-color-scheme: dark) {
 	.tab-close-button {
 		list-style-image: url("../icons/window-close-symbolic-light.svg") !important;
