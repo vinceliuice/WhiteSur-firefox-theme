@@ -164,35 +164,35 @@ tab[selected]:-moz-window-inactive {
 	margin-left: 0 !important
 }
 
-@media (-moz-proton) {
-	/* Firefox v89 beta tab fix */
-	.tab-background {
-		border-radius: 0 !important;
-		margin-block: 0 !important;
-	}
-
-	/*Align personal bookmarks v89 */
-	#personal-bookmarks {
-		-moz-box-align: center !important;
-	}
-
-	/* fix misc spacing between tabs */
-	.tabbrowser-tab {
-		min-height: 28px !important;
-		padding-inline: 0px !important;
-	}
-
-	.tabbrowser-tab[selected="true"]>.tab-stack>.tab-background {
-		margin-left: 0px !important;
-		margin-right: 0px !important;
-	}
-
-	/* centre text when audio is playing */
-	.tabbrowser-tab:is([soundplaying]) .tab-label-container {
-		margin-left: 0 !important;
-		margin-right: auto !important
-	}
+/* Firefox v89 beta tab fix */
+/* Firefox v96 removed @media to check if moz-proton */
+.tab-background {
+	border-radius: 0 !important;
+	margin-block: 0 !important;
 }
+
+/*Align personal bookmarks v89 */
+#personal-bookmarks {
+	-moz-box-align: center !important;
+}
+
+/* fix misc spacing between tabs */
+.tabbrowser-tab {
+	min-height: 28px !important;
+	padding-inline: 0px !important;
+}
+
+.tabbrowser-tab[selected="true"]>.tab-stack>.tab-background {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+
+/* centre text when audio is playing */
+.tabbrowser-tab:is([soundplaying]) .tab-label-container {
+	margin-left: 0 !important;
+	margin-right: auto !important
+}
+
 
 /* Remove tab icons */
 /* tab:not([pinned=true]) .tab-icon-image {
