@@ -18,11 +18,11 @@ Run `./install.sh`
 
 if you want to edit the style then:
 
-Run `./install.sh -f -e`
+Run `./install.sh -e`
 
 if you want to use `Monterey` style then:
 
-Run `./install.sh -f monterey`
+Run `./install.sh -m`
 
 ![01](https://github.com/vinceliuice/WhiteSur-gtk-theme/blob/pictures/pictures/firefox-monterey.png?raw=true)
 
