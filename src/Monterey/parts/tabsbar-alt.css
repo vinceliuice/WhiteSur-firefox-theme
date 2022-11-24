@@ -2,8 +2,37 @@
 
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
+:root {
+	--space-above-tabbar: 0 !important;
+}
+
+/* Fix tabs bar icon sizes */
+#TabsToolbar {
+	padding: 0 0 6px 0 !important;
+}
+
+/* Tabs bar height */
+#tabbrowser-tabs,
+#tabbrowser-tabs arrowscrollbox {
+	height: 36px !important;
+	min-height: 36px !important;
+	--tab-min-height: 36px !important;
+}
+
+.tab-background, .tab-stack {
+	min-height: 36px !important;
+}
+
 tab > stack {
 	margin: 0 3px !important;
+}
+
+:root:not([sizemode="normal"]) .titlebar-spacer[type="pre-tabs"], :root[gtktiledwindow="true"] .titlebar-spacer[type="pre-tabs"] { /* reset */
+	display: flex !important;
+}
+
+#TabsToolbar .titlebar-spacer {
+	width: 8px !important;
 }
 
 .tabbrowser-tab,
@@ -11,20 +40,8 @@ tab > stack {
 	border: none !important;
 	box-shadow: none !important;
 	border-radius: 8px !important;
-	height: 32px !important;
-	min-height: 32px !important;
-	max-height: 32px !important;
 	padding: 0 !important;
 	background-image: none !important;
-}
-
-.tabbrowser-tab:not([pinned]) {
-	margin: 2px 0 0 !important;
-}
-
-.tabbrowser-tab[pinned] {
-	margin-top: 2px !important;
-	margin-bottom: 0 !important;
 }
 
 .tabbrowser-tab:not([visuallyselected="true"], [multiselected]), .tabbrowser-tab:-moz-lwtheme {
@@ -37,8 +54,8 @@ tab > stack {
 
 .tab-background {
 	margin: 0 !important;
-	background-color: transparent !important;
-	transition: background 200ms !important;
+	transition: all 200ms;
+	margin-block: 0 !important;
 }
 
 .tab-background:not([selected=true]) {
@@ -61,6 +78,79 @@ tab > stack {
 
 .tab-background[selected=true]:-moz-window-inactive {
 	background: var(--gnome-inactive-tabbar-tab-active-background) !important;
+}
+
+/* Center all inside tab */
+.tab-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	min-width: 100% !important;
+	padding: 0 10px !important;
+}
+
+/* Prevent tab icons size breaking */
+.tab-icon-image, .tab-icon-sound, .tab-throbber, .tab-throbber-fallback, .tab-close-button {
+	min-width: 16px;
+}
+
+/* Adjust tab label width */
+.tab-label-container {
+	min-width: 0 !important;
+}
+
+/* Put tab close button and icon sound to the right */
+.tab-icon-sound[soundplaying="true"], .tab-icon-sound[muted="true"],
+.tab-icon-sound[activemedia-blocked="true"] {
+	margin-left: auto !important;
+}
+/*.tabbrowser-tab:not([soundplaying]):not([muted]):not([activemedia-blocked]) .tab-close-button {*/
+/*	margin-left: auto !important;*/
+/*}*/
+.tab-icon-sound {
+	margin-right: 6px;
+}
+
+/* Force tab favicon to the center */
+.tab-throbber, .tab-throbber-fallback,
+.tabbrowser-tab:not([busy]) .tab-icon-image,
+.tabbrowser-tab:not([class*="identity-color-"]) .tab-icon-stack {
+	margin-left: auto !important;
+}
+
+/* separate class for multi-tab alignment*/
+.tabbrowser-tab[class*="identity-color-"] > .tab-stack > .tab-content > .tab-icon-stack {
+	margin-left: auto !important;
+}
+
+/* If tab favicon is not present, force tab label to the center */
+.tabbrowser-tab .tab-label-container {
+	margin-left: 0 !important;
+	margin-right: auto !important;
+}
+
+.tabbrowser-tab:not([image]):not([busy]):not([progress]) .tab-label-container {
+	margin-left: auto !important;
+}
+
+/* Fix website with no favicon centred text */
+.tabbrowser-tab:not([image]) .tab-icon-overlay:not([pinned], [sharing], [crashed]) .tab-icon-stack {
+	margin-left: 0 !important
+}
+
+.tabbrowser-tab:not([image], [busy]) .tab-icon-stack {
+	margin-left: 0 !important
+}
+
+/*Align personal bookmarks v89 */
+#personal-bookmarks {
+	-moz-box-align: center !important;
+}
+
+/* fix misc spacing between tabs */
+.tabbrowser-tab {
+	padding-inline: 0px !important;
 }
 
 .close-icon {
@@ -122,6 +212,29 @@ tab > stack {
 	display: none;
 }
 
+/* Remove tab separators */
+.tabbrowser-tab::after,
+.tabbrowser-tab::before {
+	border-color: transparent !important;
+	border-image: none !important;
+}
+
+/* Full width tabs */
+.tabbrowser-tab:not([style^="max-width"]):not([pinned]),
+.tabbrowser-tab[style^="max-width: 100px !important;"]:not([pinned]) {
+	max-width: 100% !important;
+}
+
+.tabbrowser-tab:not([style^="max-width"]):not([pinned]):not([fadein]),
+.tabbrowser-tab[style^="max-width: 100px !important;"]:not([pinned]):not([fadein]) {
+	max-width: .1px !important;
+}
+
+/* Remove alt colours references for multi tabs*/
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-bottom-line {
+	display: none;
+}
+
 .tabbrowser-tab[class*="identity-color-"][pinned] {
 	display: flex;
 }
@@ -133,10 +246,9 @@ tab > stack {
 
 #TabsToolbar .toolbarbutton-1,
 #tabs-newtab-button, #TabsToolbar #new-tab-button {
-	margin: 2px 2px 0 !important;
+	margin: 0 2px !important;
 	padding: 0 10px !important;
-	max-height: 32px !important;
-	min-height: 32px !important;
+	border-radius: 8px !important;
 }
 
 #TabsToolbar .toolbarbutton-1 image,
@@ -148,8 +260,7 @@ tab > stack {
 }
 
 #TabsToolbar #scrollbutton-up, #TabsToolbar #scrollbutton-down {
-	max-height: 32px !important;
-	min-height: 32px !important;
+	height: 36px !important;
 }
 
 #TabsToolbar #scrollbutton-up image, #TabsToolbar #scrollbutton-down image {
@@ -163,16 +274,23 @@ tab > stack {
 :root:not([privatebrowsingmode="temporary"]):not([firefoxviewhidden]) :is(#firefox-view-button, #wrapper-firefox-view-button) + #tabbrowser-tabs {
 	border-inline-start: none !important;
 	padding-inline-start: 0 !important;
-	margin-inline-start: -40px !important;
+	margin-inline-start: 0 !important;
+}
+
+#firefox-view-button {
+	border-radius: 8px !important;
+	background: var(--gnome-tabbar-tab-background) !important;
+}
+
+#firefox-view-button:hover {
+	background: var(--gnome-tabbar-tab-hover-background) !important;
+}
+
+#firefox-view-button:checked, #firefox-view-button:active {
+	background: var(--gnome-tabbar-tab-active-background) !important;
 }
 
 #firefox-view-button > .toolbarbutton-icon {
 	filter: none !important;
 	box-shadow: none !important;
-}
-
-/* Remove shadow next to tab scroll buttons */
-.arrowscrollbox-overflow-start-indicator,
-.arrowscrollbox-overflow-end-indicator {
-	display: none;
 }

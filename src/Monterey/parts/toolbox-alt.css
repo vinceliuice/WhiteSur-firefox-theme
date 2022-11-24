@@ -7,7 +7,7 @@
 
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
-#nav-bar, #PersonalToolbar, #toolbar-menubar {
+#nav-bar, #PersonalToolbar, #toolbar-menubar, #TabsToolbar {
 	border: 0 !important;
 	color: var(--gnome-toolbar-color);
 	background: var(--gnome-toolbar-background) !important;
@@ -23,6 +23,7 @@ findbar {
 #nav-bar:-moz-window-inactive,
 #PersonalToolbar:-moz-window-inactive,
 #toolbar-menubar:-moz-window-inactive,
+#TabsToolbar:-moz-window-inactive,
 findbar:-moz-window-inactive {
 	background: var(--gnome-inactive-toolbar-background) !important;
 }
@@ -40,15 +41,7 @@ findbar:-moz-window-inactive {
 
 #titlebar {
 	min-height: 0 !important
-	max-height: 48px !important;
-}
-
-#TabsToolbar {
-	margin-top: -42px !important;
-	padding: 0 !important;
-	margin-bottom: 6px !important;
-	background: none !important;
-	max-height: 48px !important;
+	max-height: 36px !important;
 }
 
 #nav-bar {
@@ -67,33 +60,32 @@ findbar:-moz-window-inactive {
 	margin-bottom: 0 !important;
 }
 
+/* Reorder toolbars */
 #navigator-toolbox #nav-bar, findbar {
 	-moz-box-ordinal-group: 0;
 }
 #navigator-toolbox #PersonalToolbar {
-	-moz-box-ordinal-group: 10;
-}
-#navigator-toolbox #titlebar {
 	-moz-box-ordinal-group: 1;
 }
+#navigator-toolbox #titlebar {
+	-moz-box-ordinal-group: 2;
+}
 #navigator-toolbox toolbar {
-	-moz-box-ordinal-group: 3;
+	-moz-box-ordinal-group: 10;
 }
 #navigator-toolbox #TabsToolbar {
-	-moz-box-ordinal-group: 2;
+	-moz-box-ordinal-group: 100;
 }
 
 #PersonalToolbar {
-	padding: 3px !important;
+	padding: 0 4px !important;
 	height: 32px !important;
-	max-height: 32px !important;
-	padding-inline: 3px !important;
 }
 
 /* bookmark-item */
 toolbarbutton.bookmark-item {
-	padding: 2px 6px !important;
+	padding: 0 4px; !important;
 	margin: 0 2px !important;
 	border-radius: 3px !important;
-	max-height: 24px !important;
+	max-height: 20px !important;
 }

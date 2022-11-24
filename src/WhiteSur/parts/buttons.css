@@ -28,8 +28,7 @@ menulist,
 #sidebar-switcher-target,
 #viewButton,
 .close-icon:not(.tab-close-button),
-button.close,
-#TabsToolbar .toolbarbutton-1,
+button.close:not(.ghost-button),
 .menulist-label-box,
 .expander-down, .expander-up,
 .notification-button,
@@ -121,8 +120,7 @@ menulist:hover,
 #sidebar-switcher-target:hover,
 #viewButton:hover,
 .close-icon:not(.tab-close-button):hover,
-button.close:hover,
-#TabsToolbar .toolbarbutton-1:hover,
+button.close:not(.ghost-button):hover,
 menulist:hover .menulist-label-box,
 .expander-down:hover, .expander-up:hover,
 .notification-button:hover,
@@ -159,8 +157,7 @@ menulist[open],
 #sidebar-switcher-target:active, #sidebar-switcher-target.active,
 #viewButton[open],
 .close-icon:not(.tab-close-button):active,
-button.close:active,
-#TabsToolbar .toolbarbutton-1:active, #TabsToolbar .toolbarbutton-1[open],
+button.close:not(.ghost-button):active,
 menulist[open] .menulist-label-box,
 .expander-down:active, .expander-up:active,
 .notification-button:active,
@@ -213,8 +210,7 @@ menulist[open] .menulist-label-box,
 /* Flat buttons */
 .subviewbutton-back:not(#hack),
 .close-icon:not(.tab-close-button),
-button.close,
-#TabsToolbar .toolbarbutton-1,
+button.close:not(.ghost-button),
 #protections-popup-info-button,
 .permission-popup-permission-remove-button {
 	background: transparent !important;
@@ -225,10 +221,10 @@ button.close,
 
 .subviewbutton-back:not(#hack):not(:active):hover,
 .close-icon:not(.tab-close-button):not(:active):hover,
-button.close:not(:active):hover,
-#TabsToolbar .toolbarbutton-1:not(:active):not([open]):hover,
+button.close:not(.ghost-button):not(:active):hover,
 #protections-popup-info-button:hover,
 .permission-popup-permission-remove-button:not(:active):hover {
+	background: var(--gnome-headerbar-button-hover-background) !important;
 	box-shadow: none !important;
 	border-color: var(--gnome-button-border-color) !important;
 	border-bottom-color: var(--gnome-button-border-accent-color) !important;
@@ -236,64 +232,18 @@ button.close:not(:active):hover,
 
 .subviewbutton-back:not(#hack):active,
 .close-icon:not(.tab-close-button):active,
-button.close:active,
-#TabsToolbar .toolbarbutton-1:active,
+button.close:not(.ghost-button):active,
 #protections-popup-info-button:active,
 .permission-popup-permission-remove-button:active {
 	box-shadow: none !important;
+	background: var(--gnome-headerbar-button-active-background) !important;
 }
 
+button.close,
 .close-icon:not(.tab-close-button) {
-	background: transparent !important;
 	box-shadow: none !important;
 	border: none !important;
-	border-radius: 100px !important;
-	padding: 0 0 !important;
-	margin: 0 0 !important;
-	min-height: 24px !important;
-	min-width: 24px !important;
-}
-
-#sidebar-close.close-icon,
-.findbar-closebutton.close-icon {
-	min-width: 28px !important;
-}
-
-.close-icon:not(.tab-close-button) .button-icon {
-	padding: 0 0 !important;
-	margin: 0 0 !important;
-}
-
-#TabsToolbar .toolbarbutton-1 {
-	margin: 0 0 !important;
-	padding: 0 0 !important;
-	height: 28px !important;
-	width: 32px !important;
-	min-height: 28px !important;
-	min-width: 32px !important;
-	border-radius: 0 !important;
-	transition: all 200ms;
-}
-
-#TabsToolbar .toolbarbutton-1 image {
-	margin: 0 0 !important;
-	padding: 0 0 !important;
-	height: 16px !important;
-	width: 16px !important;
-	min-height: 16px !important;
-	min-width: 16px !important;
-}
-
-.close-icon:not(.tab-close-button):hover,
-#TabsToolbar .toolbarbutton-1:not(:active):not([open]):hover {
-	outline: 0 !important;
-	background: var(--gnome-button-hover-color) !important;
-}
-
-.close-icon:not(.tab-close-button):active,
-#TabsToolbar .toolbarbutton-1:active, #TabsToolbar .toolbarbutton-1[open] {
-	outline: 0 !important;
-	background: var(--gnome-button-active-color) !important;
+	border-radius: 100% !important;
 }
 
 /* Circle buttons */
@@ -305,6 +255,7 @@ button.close:active,
 	min-height: 32px !important;
 	min-width: 32px !important;
 	border-radius: 100% !important;
+	outline: none !important;
 }
 
 /* Combined buttons */
@@ -313,8 +264,7 @@ button.close:active,
 #appMenu-popup .toolbaritem-combined-buttons toolbarbutton:not(:last-of-type):not(#appMenu-zoomEnlarge-button),
 #context-navigation menuitem:not(:last-of-type),
 .findbar-container toolbarbutton.findbar-find-previous,
-.findbar-button:not(:last-of-type),
-.search-panel-one-offs .searchbar-engine-one-off-item:not(:last-child) {
+.findbar-button:not(:last-of-type) {
 	border-top-right-radius: 0 !important;
 	border-bottom-right-radius: 0 !important;
 	border-right-width: 0 !important;
@@ -327,8 +277,7 @@ button.close:active,
 #context-navigation menuitem:not(:first-of-type),
 .findbar-container toolbarbutton.findbar-find-previous,
 .findbar-container toolbarbutton.findbar-find-next,
-.findbar-button:not(:first-of-type),
-.search-panel-one-offs .searchbar-engine-one-off-item:not(:first-child) {
+.findbar-button:not(:first-of-type) {
 	border-top-left-radius: 0 !important;
 	border-bottom-left-radius: 0 !important;
 	margin-left: 0 !important;

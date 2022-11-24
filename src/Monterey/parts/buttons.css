@@ -28,7 +28,7 @@ menulist,
 #sidebar-switcher-target,
 #viewButton,
 .close-icon:not(.tab-close-button),
-button.close,
+button.close:not(.ghost-button),
 .menulist-label-box,
 .expander-down, .expander-up,
 .notification-button,
@@ -120,7 +120,7 @@ menulist:hover,
 #sidebar-switcher-target:hover,
 #viewButton:hover,
 .close-icon:not(.tab-close-button):hover,
-button.close:hover,
+button.close:not(.ghost-button):hover,
 menulist:hover .menulist-label-box,
 .expander-down:hover, .expander-up:hover,
 .notification-button:hover,
@@ -157,7 +157,7 @@ menulist[open],
 #sidebar-switcher-target:active, #sidebar-switcher-target.active,
 #viewButton[open],
 .close-icon:not(.tab-close-button):active,
-button.close:active,
+button.close:not(.ghost-button):active,
 menulist[open] .menulist-label-box,
 .expander-down:active, .expander-up:active,
 .notification-button:active,
@@ -210,7 +210,7 @@ menulist[open] .menulist-label-box,
 /* Flat buttons */
 .subviewbutton-back:not(#hack),
 .close-icon:not(.tab-close-button),
-button.close,
+button.close:not(.ghost-button),
 #protections-popup-info-button,
 .permission-popup-permission-remove-button {
 	background: transparent !important;
@@ -221,9 +221,10 @@ button.close,
 
 .subviewbutton-back:not(#hack):not(:active):hover,
 .close-icon:not(.tab-close-button):not(:active):hover,
-button.close:not(:active):hover,
+button.close:not(.ghost-button):not(:active):hover,
 #protections-popup-info-button:hover,
 .permission-popup-permission-remove-button:not(:active):hover {
+	background: var(--gnome-headerbar-button-hover-background) !important;
 	box-shadow: none !important;
 	border-color: var(--gnome-button-border-color) !important;
 	border-bottom-color: var(--gnome-button-border-accent-color) !important;
@@ -231,41 +232,18 @@ button.close:not(:active):hover,
 
 .subviewbutton-back:not(#hack):active,
 .close-icon:not(.tab-close-button):active,
-button.close:active,
+button.close:not(.ghost-button):active,
 #protections-popup-info-button:active,
 .permission-popup-permission-remove-button:active {
 	box-shadow: none !important;
+	background: var(--gnome-headerbar-button-active-background) !important;
 }
 
+button.close,
 .close-icon:not(.tab-close-button) {
-	background: transparent !important;
 	box-shadow: none !important;
 	border: none !important;
-	border-radius: 100px !important;
-	padding: 0 0 !important;
-	margin: 0 0 !important;
-	min-height: 24px !important;
-	min-width: 24px !important;
-}
-
-#sidebar-close.close-icon,
-.findbar-closebutton.close-icon {
-	min-width: 28px !important;
-}
-
-.close-icon:not(.tab-close-button) .button-icon {
-	padding: 0 0 !important;
-	margin: 0 0 !important;
-}
-
-.close-icon:not(.tab-close-button):hover {
-	outline: 0 !important;
-	background: var(--gnome-button-hover-color) !important;
-}
-
-.close-icon:not(.tab-close-button):active {
-	outline: 0 !important;
-	background: var(--gnome-button-active-color) !important;
+	border-radius: 100% !important;
 }
 
 /* Circle buttons */
