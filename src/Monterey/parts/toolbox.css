@@ -8,17 +8,14 @@
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
 #nav-bar, #PersonalToolbar, #toolbar-menubar {
+	border: 0 !important;
 	color: var(--gnome-toolbar-color);
 	background: var(--gnome-toolbar-background) !important;
-	border: none !important;
-}
-
-#PersonalToolbar {
-	border-bottom: 1px solid var(--gnome-toolbar-border-color) !important;
+	border-bottom: none !important;
 }
 
 findbar {
-	border: none !important;
+	border: 0 !important;
 	background: var(--gnome-findbar-background) !important;
 	border-bottom: 1px solid var(--gnome-toolbar-border-color) !important;
 }
@@ -32,7 +29,7 @@ findbar:-moz-window-inactive {
 
 /* Toolbox colors */
 #navigator-toolbox {
-	border: none !important;
+	border: 0 !important;
 	background: none !important;
 }
 
@@ -57,6 +54,8 @@ findbar:-moz-window-inactive {
 #nav-bar {
 	border: none !important;
 	box-shadow: none !important;
+	border-top-width: 0px !important;
+	border-bottom-width: 0px !important;
 }
 
 /* allow to drag headerbar empty space */
@@ -85,14 +84,15 @@ findbar:-moz-window-inactive {
 }
 
 #PersonalToolbar {
-	padding: 0 3px 3px !important;
+	padding: 3px !important;
 	height: 32px !important;
 	max-height: 32px !important;
+	padding-inline: 3px !important;
 }
 
 /* bookmark-item */
 toolbarbutton.bookmark-item {
-	padding: 3px 6px !important;
+	padding: 2px 6px !important;
 	margin: 0 2px !important;
 	border-radius: 3px !important;
 	max-height: 24px !important;

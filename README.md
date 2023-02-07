@@ -4,7 +4,7 @@
 <p align="center">A MacOSX Safari theme for Firefox 80+</p>
 
 #### Preview
-![01](https://github.com/vinceliuice/WhiteSur-gtk-theme/blob/pictures/pictures/firefox-whitesur.png?raw=true)
+![01](https://github.com/vinceliuice/WhiteSur-gtk-theme/blob/pictures/pictures/firefox.png?raw=true)
 
 ## Description
 
@@ -24,8 +24,9 @@ if you want to use `Monterey` style then:
 
 Run `./install.sh -m`
 
-![01](https://github.com/vinceliuice/WhiteSur-gtk-theme/blob/pictures/pictures/firefox-monterey.png?raw=true)
+if you want to use `Monterey` `alt` style then:
 
+Run `./install.sh -a`
 
 ### MacOS and Windows version
 AdamXweb - WhiteSurFirefoxThemeMacOS: https://github.com/AdamXweb/WhiteSurFirefoxThemeMacOS

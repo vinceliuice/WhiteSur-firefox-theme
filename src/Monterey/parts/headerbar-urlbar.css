@@ -66,7 +66,6 @@ toolbarspring {
 	width: 360px !important;
 	z-index: 5 !important;
 	padding: 0 0 !important;
-	border-radius: 10px !important;
 }
 #urlbar[breakout][breakout-extend][open] {
 	height: auto !important;
@@ -80,10 +79,6 @@ toolbarspring {
 
 #urlbar[breakout][breakout-extend][open] #urlbar-background {
 	box-shadow: var(--gnome-urlbar-box-shadow) !important;
-}
-
-#urlbar-input {
-	text-align: center !important;
 }
 
 /* URL bar results */
@@ -172,6 +167,13 @@ toolbarspring {
 	fill-opacity: 1 !important;
 }
 
+.urlbar-icon {
+	width: 16px !important;
+	height: 16px !important;
+	padding: 0 1px !important;
+	margin: 0 !important;
+}
+
 #identity-box {
 	margin: 3px 2px !important;
 	border-radius: 5px !important;
@@ -179,10 +181,7 @@ toolbarspring {
 
 .urlbar-page-action, #urlbar-go-button, .search-go-button,
 #tracking-protection-icon-container {
-	width: 28px !important;
-	height: 26px !important;
 	margin: 3px 0 !important;
-	padding: 4px 6px !important;
 	border-radius: 5px !important;
 }
 

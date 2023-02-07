@@ -59,6 +59,7 @@ helpify() {
 usage() {
   helpify_title
   helpify "-m, --monterey"          ""                                   "Install 'Monterey' theme for Firefox and connect it to the current Firefox profiles"                        ""
+  helpify "-a, --alt"               ""                                   "Install 'Monterey' theme alt version for Firefox and connect it to the current Firefox profiles"            ""
   helpify "-e, --edit"              ""                                   "Edit '${THEME_NAME}' theme for Firefox settings and also connect the theme to the current Firefox profiles" ""
   helpify "-r, --remove, --revert"  ""                                   "Remove themes, do the opposite things of install and connect"                                               ""
   helpify "-h, --help"              ""                                   "Show this help"                                                                                             ""
@@ -82,6 +83,10 @@ install_firefox_theme() {
   cp -rf "${FIREFOX_SRC_DIR}"/common/*                                                        "${TARGET_DIR}/${name}"
   [[ -f "${TARGET_DIR}"/userChrome.css ]] && mv "${TARGET_DIR}"/userChrome.css "${TARGET_DIR}"/userChrome.css.bak
   cp -rf "${FIREFOX_SRC_DIR}"/userChrome-"${name}".css                                        "${TARGET_DIR}"/userChrome.css
+
+  if [[ "${alt}" == 'true' && "${name}" == 'Monterey' ]]; then
+    cp -rf "${FIREFOX_SRC_DIR}"/userChrome-Monterey-alt.css                                   "${TARGET_DIR}"/userChrome.css
+  fi
 
   config_firefox
 }
@@ -146,17 +151,13 @@ remove_firefox_theme() {
 echo
 
 while [[ $# -gt 0 ]]; do
-  # Don't show any dialog here. Let this loop checks for errors or shows help
-  # We can only show dialogs when there's no error and no -r parameter
-  #
-  # * shift for parameters that have no value
-  # * shift 2 for parameter that have a value
-  #
-  # Please don't exit any error here if possible. Let it show all error warnings
-  # at once
-
   case "${1}" in
     -m|--monterey)
+      monterey="true"
+      THEME_NAME="Monterey"
+      shift ;;
+    -a|--alt)
+      alt="true"
       monterey="true"
       THEME_NAME="Monterey"
       shift ;;
@@ -183,21 +184,20 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ "${uninstall}" == 'true' ]]; then
-    prompt -i "Removing '${THEME_NAME}' Firefox theme..."
+    prompt -i "Removing '${THEME_NAME}' Firefox theme...\n"
     remove_firefox_theme
-    prompt -s "Done! '${THEME_NAME}' Firefox theme has been removed."; echo
+    prompt -s "Done! '${THEME_NAME}' Firefox theme has been removed."
 else
-    prompt -i "Installing '${THEME_NAME}' Firefox theme..."
+    prompt -i "Installing '${THEME_NAME}' Firefox theme...\n"
     install_firefox_theme "${name:-${THEME_NAME}}"
-    prompt -s "Done! '${THEME_NAME}' Firefox theme has been installed."; echo
+    prompt -s "Done! '${THEME_NAME}' Firefox theme has been installed.\n"
 
     if [[ "${edit_firefox}" == 'true' ]]; then
-      prompt -i "Editing '${THEME_NAME}' Firefox theme preferences..."
+      prompt -i "Editing '${THEME_NAME}' Firefox theme preferences...\n"
       edit_firefox_theme_prefs
-      prompt -s "Done! '${THEME_NAME}' Firefox theme preferences has been edited."; echo
+      prompt -s "Done! '${THEME_NAME}' Firefox theme preferences has been edited.\n"
     fi
 
-    prompt -w "FIREFOX: Please go to [Firefox menu] > [Customize...], and customize your Firefox to make it work. Move your 'new tab' button to the titlebar instead of tab-switcher."
-    prompt -i "FIREFOX: Anyways, you can also edit 'userChrome.css' and 'customChrome.css' later in your Firefox profile directory."
-    echo
+    prompt -w "FIREFOX: Please go to [Firefox menu] > [Customize...], and customize your Firefox to make it work. Move your 'new tab' button to the titlebar instead of tab-switcher.\n"
+    prompt -i "FIREFOX: Anyways, you can also edit 'userChrome.css' and 'customChrome.css' later in your Firefox profile directory.\n"
 fi
