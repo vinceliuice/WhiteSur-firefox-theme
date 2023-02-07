@@ -126,7 +126,7 @@ toolbarspring {
 	border-radius: 5px 0 0 5px !important;
 	border-left-width: 1px !important;
 }
-.searchbar-engine-one-off-item.last-engine, .searchbar-engine-one-off-item:not(.search-setting-button):last-child {
+.searchbar-engine-one-off-item:last-child:not(.search-setting-button) {
 	border-radius: 0 5px 5px 0 !important;
 }
 
