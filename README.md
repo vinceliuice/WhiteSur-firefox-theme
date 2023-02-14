@@ -1,5 +1,5 @@
 
-## Firefox Safari theme
+## <p align="center">Firefox Safari theme</p>
 
 <p align="center">A MacOSX Safari theme for Firefox 80+</p>
 
