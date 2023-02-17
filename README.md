@@ -1,12 +1,9 @@
 
-## Firefox Safari theme
+## <p align="center">Firefox Safari theme</p>
 
 <p align="center">A MacOSX Safari theme for Firefox 80+</p>
 
-#### Preview
 ![01](https://github.com/vinceliuice/WhiteSur-gtk-theme/blob/pictures/pictures/firefox.png?raw=true)
-
-## Description
 
 This is a bunch of CSS code to make Firefox look closer to MacOSX Safari theme.
 
