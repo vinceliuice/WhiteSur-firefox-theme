@@ -11,6 +11,17 @@ THEME_NAME="WhiteSur"
 
 edit_firefox="false"
 
+FIREFOX_SRC_DIR="${REPO_DIR}/src"
+FIREFOX_DIR_HOME="${MY_HOME}/.mozilla/firefox"
+FIREFOX_THEME_DIR="${MY_HOME}/.mozilla/firefox/firefox-themes"
+FIREFOX_FLATPAK_DIR_HOME="${MY_HOME}/.var/app/org.mozilla.firefox/.mozilla/firefox"
+FIREFOX_FLATPAK_THEME_DIR="${MY_HOME}/.var/app/org.mozilla.firefox/.mozilla/firefox/firefox-themes"
+FIREFOX_SNAP_DIR_HOME="${MY_HOME}/snap/firefox/common/.mozilla/firefox"
+FIREFOX_SNAP_THEME_DIR="${MY_HOME}/snap/firefox/common/.mozilla/firefox/firefox-themes"
+
+export c_default="\033[0m"
+export c_blue="\033[1;34m"
+export c_magenta="\033[1;35m"
 export c_cyan="\033[1;36m"
 export c_green="\033[1;32m"
 export c_red="\033[1;31m"
@@ -83,6 +94,8 @@ install_firefox_theme() {
   cp -rf "${FIREFOX_SRC_DIR}"/common/*                                                        "${TARGET_DIR}/${name}"
   [[ -f "${TARGET_DIR}"/userChrome.css ]] && mv "${TARGET_DIR}"/userChrome.css "${TARGET_DIR}"/userChrome.css.bak
   cp -rf "${FIREFOX_SRC_DIR}"/userChrome-"${name}".css                                        "${TARGET_DIR}"/userChrome.css
+  [[ -f "${TARGET_DIR}"/userContent.css ]] && mv "${TARGET_DIR}"/userContent.css "${TARGET_DIR}"/userContent.css.bak
+  cp -rf "${FIREFOX_SRC_DIR}"/userContent-"${name}".css                                        "${TARGET_DIR}"/userContent.css
 
   if [[ "${alt}" == 'true' && "${name}" == 'Monterey' ]]; then
     cp -rf "${FIREFOX_SRC_DIR}"/userChrome-Monterey-alt.css                                   "${TARGET_DIR}"/userChrome.css
