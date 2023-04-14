@@ -4,9 +4,9 @@
 
 /* Cursors autoscroller fix */
 .autoscroller {
-  --panel-background: transparent !important;
-  --panel-border-color: transparent !important;
-  background-image: url("chrome://global/skin/icons/autoscroll.svg") !important;
+	--panel-background: transparent !important;
+	--panel-border-color: transparent !important;
+	background-image: url("chrome://global/skin/icons/autoscroll.svg") !important;
 }
 
 /* Built-in firefox icons color */
@@ -88,28 +88,31 @@ arrowscrollbox[orient="horizontal"] {
 
 /* Search entries */
 #urlbar[pageproxystate="invalid"] > #identity-box > #identity-icon,
+#urlbar:not(.searchButton) > #urlbar-input-container > #identity-box[pageproxystate="invalid"] #identity-icon,
 .searchbar-search-icon,
 #search-box .textbox-search-sign {
 	list-style-image: url("../icons/edit-find-symbolic.svg") !important;
 	opacity: 0.7 !important;
 }
+
 #search-box .textbox-search-sign {
 	width: 16px !important;
 	margin: 2px 0;
 }
 
 /* Tree views */
-treechildren::-moz-tree-twisty,
-.item.client .item-twisty-container {
-	list-style-image: url("../icons/pan-down-symbolic.svg") !important;
+treechildren::-moz-tree-twisty {
+	list-style-image: url("../icons/pan-end-symbolic.svg") !important;
 	width: 16px !important;
 	height: 16px !important;
 }
 .item.client .item-twisty-container {
 	background-image: url("../icons/pan-end-symbolic.svg") !important;
+	width: 16px !important;
+	height: 16px !important;
 }
 treechildren::-moz-tree-twisty(open) {
-	list-style-image: url("../icons/pan-end-symbolic.svg") !important;
+	list-style-image: url("../icons/pan-down-symbolic.svg") !important;
 }
 treechildren::-moz-tree-twisty(selected, focus) {
 	list-style-image: url("../icons/pan-down-symbolic-light.svg") !important;
@@ -188,16 +191,11 @@ menu[disabled] > .menu-right {
 	list-style-image: url("../icons/window-close-symbolic.svg") !important;
 }
 
-.tab-icon-overlay {
-	height: 22px !important;
-	width: 22px !important;
-	padding: 3px !important;
-}
-
 /* Sound icons */
 .tab-icon-overlay[soundplaying] {
 	list-style-image: url("../icons/audio-playing-symbolic.svg") !important;
 }
+
 .tab-icon-overlay[muted] {
 	list-style-image: url("../icons/audio-muted-symbolic.svg") !important;
 }
@@ -369,8 +367,13 @@ menu[disabled] > .menu-right {
 	list-style-image: url("../icons/page-action.svg") !important;
 }
 
+#save-to-pocket-button,
 #pocket-button, #pageAction-panel-pocket {
 	list-style-image: url("../icons/save-to-pocket.svg") !important;
+}
+
+#save-to-pocket-button[open="true"], #save-to-pocket-button[pocketed="true"] {
+	list-style-image: url("../icons/save-to-pocket-open.svg") !important;
 }
 
 #context-bookmarkpage,
@@ -539,10 +542,12 @@ button.close::before {
 	height: 16px !important;
 	width: 16px !important;
 }
+
 /* Fix icon color */
 #sidebar-icon {
 	opacity: 1 !important;
 }
+
 treechildren::-moz-tree-twisty,
 treechildren::-moz-tree-image {
 	fill-opacity: 1 !important;
@@ -566,6 +571,7 @@ treechildren::-moz-tree-image {
 	.menu-right,
 
 	#urlbar[pageproxystate="invalid"] > #identity-box > #identity-icon,
+	#urlbar:not(.searchButton) > #urlbar-input-container > #identity-box[pageproxystate="invalid"] #identity-icon,
 	.searchbar-search-icon,
 	#search-box .textbox-search-sign,
 
@@ -673,14 +679,25 @@ treechildren::-moz-tree-image {
 	#identity-box[pageproxystate="valid"].localResource #identity-icon,
 	.bookmark-item[container] .toolbarbutton-icon,
 	.menu-iconic.bookmark-item[container] .menu-iconic-icon,
-	.panel-info-button > image,
-	.tab-icon-overlay {
+	.panel-info-button > image {
 		filter: invert(60%) brightness(150%);
 	}
 
-	#pocket-button,
-	#pageAction-panel-pocket {
+	.tab-icon-overlay[soundplaying] {
+		list-style-image: url("../icons/audio-playing-symbolic-light.svg") !important;
+	}
+
+	.tab-icon-overlay[muted] {
+		list-style-image: url("../icons/audio-muted-symbolic-light.svg") !important;
+	}
+
+	#save-to-pocket-button,
+	#pocket-button, #pageAction-panel-pocket {
 		list-style-image: url("../icons/save-to-pocket-light.svg") !important;
+	}
+
+	#save-to-pocket-button[open="true"], #save-to-pocket-button[pocketed="true"] {
+		list-style-image: url("../icons/save-to-pocket-open-light.svg") !important;
 	}
 
 	/* Tree views */

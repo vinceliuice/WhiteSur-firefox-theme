@@ -183,6 +183,10 @@ button.close.ghost-button:active {
 	margin: 4px 4px 0 4px !important;
 }
 
+#context-navigation > .menuitem-iconic > .menu-iconic-left > .menu-iconic-icon {
+	margin: 3px !important;
+}
+
 /* Bookmarks editor buttons */
 .expander-down image, .expander-up image {
 	margin: 6px !important;
@@ -227,6 +231,5 @@ button.close.ghost-button:active {
 
 /* Close button */
 .close-icon:not(.tab-close-button) .toolbarbutton-icon {
-	outline:  0 !important;
+	outline: 0 !important;
 }
-
