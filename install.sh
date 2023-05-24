@@ -91,11 +91,13 @@ install_firefox_theme() {
   cp -rf "${FIREFOX_SRC_DIR}/${name}"                                                         "${TARGET_DIR}"
   [[ -f "${TARGET_DIR}"/customChrome.css ]] && mv "${TARGET_DIR}"/customChrome.css "${TARGET_DIR}"/customChrome.css.bak
   cp -rf "${FIREFOX_SRC_DIR}"/customChrome.css                                                "${TARGET_DIR}"
-  cp -rf "${FIREFOX_SRC_DIR}"/common/*                                                        "${TARGET_DIR}/${name}"
+  cp -rf "${FIREFOX_SRC_DIR}"/common/{icons,titlebuttons,pages}                               "${TARGET_DIR}/${name}"
+  cp -rf "${FIREFOX_SRC_DIR}"/common/*.css                                                    "${TARGET_DIR}/${name}"
+  cp -rf "${FIREFOX_SRC_DIR}"/common/parts/*.css                                              "${TARGET_DIR}/${name}"/parts
   [[ -f "${TARGET_DIR}"/userChrome.css ]] && mv "${TARGET_DIR}"/userChrome.css "${TARGET_DIR}"/userChrome.css.bak
   cp -rf "${FIREFOX_SRC_DIR}"/userChrome-"${name}".css                                        "${TARGET_DIR}"/userChrome.css
   [[ -f "${TARGET_DIR}"/userContent.css ]] && mv "${TARGET_DIR}"/userContent.css "${TARGET_DIR}"/userContent.css.bak
-  cp -rf "${FIREFOX_SRC_DIR}"/userContent-"${name}".css                                        "${TARGET_DIR}"/userContent.css
+  cp -rf "${FIREFOX_SRC_DIR}"/userContent-"${name}".css                                       "${TARGET_DIR}"/userContent.css
 
   if [[ "${alt}" == 'true' && "${name}" == 'Monterey' ]]; then
     cp -rf "${FIREFOX_SRC_DIR}"/userChrome-Monterey-alt.css                                   "${TARGET_DIR}"/userChrome.css
@@ -105,10 +107,10 @@ install_firefox_theme() {
 }
 
 config_firefox() {
-  # if has_snap_app firefox; then
-  #   local TARGET_DIR="${FIREFOX_SNAP_THEME_DIR}"
-  #   local FIREFOX_DIR="${FIREFOX_SNAP_DIR_HOME}"
-  if has_flatpak_app org.mozilla.firefox; then
+  if has_snap_app firefox; then
+    local TARGET_DIR="${FIREFOX_SNAP_THEME_DIR}"
+    local FIREFOX_DIR="${FIREFOX_SNAP_DIR_HOME}"
+  elif has_flatpak_app org.mozilla.firefox; then
     local TARGET_DIR="${FIREFOX_FLATPAK_THEME_DIR}"
     local FIREFOX_DIR="${FIREFOX_FLATPAK_DIR_HOME}"
   else
@@ -133,9 +135,9 @@ config_firefox() {
 }
 
 edit_firefox_theme_prefs() {
-  # if has_snap_app firefox; then
-  #  local TARGET_DIR="${FIREFOX_SNAP_THEME_DIR}"
-  if has_flatpak_app org.mozilla.firefox; then
+  if has_snap_app firefox; then
+    local TARGET_DIR="${FIREFOX_SNAP_THEME_DIR}"
+  elif has_flatpak_app org.mozilla.firefox; then
     local TARGET_DIR="${FIREFOX_FLATPAK_THEME_DIR}"
   else
     local TARGET_DIR="${FIREFOX_THEME_DIR}"
