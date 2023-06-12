@@ -4,24 +4,18 @@
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
 /* Style menus */
-menupopup, panel,
-:is(menupopup, panel)[type="arrow"] {
+menupopup, panel {
 	-moz-appearance: none !important;
-}
-
-menupopup, panel,
-:is(menupopup, panel)[type="arrow"]
-:is(panel, menupopup)::part(content) {
 	--panel-background: var(--gnome-menu-background) !important;
-	--arrowpanel-border-radius: 12px !important;
-	--arrowpanel-background: var(--gnome-menu-background) !important;
 	--panel-border-radius: 12px !important;
 	--panel-padding: 6px !important;
 	--panel-shadow: var(--gnome-popover-shadow) !important;
 	--panel-shadow-margin: 3px 8px 13px !important;
-	--panel-border-color: transparent !important;
-	--arrowpanel-border-color: transparent !important;
 	--panel-separator-color: var(--gnome-popover-separator-color) !important;
+	--panel-border-color: transparent !important;
+	--arrowpanel-border-radius: 12px !important;
+	--arrowpanel-background: var(--gnome-menu-background) !important;
+	--arrowpanel-border-color: transparent !important;
 	color: var(--gnome-toolbar-color) !important;
 }
 
@@ -30,9 +24,7 @@ menupopup, panel,
 }
 
 @media (prefers-color-scheme: dark) {
-menupopup, panel,
-:is(menupopup, panel)[type="arrow"]
-:is(panel, menupopup)::part(content) {
+menupopup, panel {
 	--panel-border-color: rgba(255, 255, 255, 0.06) !important;
 	--arrowpanel-border-color: rgba(255, 255, 255, 0.06) !important;
 }
@@ -55,8 +47,21 @@ menuitem, menupopup menu {
 	box-shadow: none !important;
 }
 
-menuitem[type="checkbox"] image, menuitem[type="radio"] image {
+menuitem[type="checkbox"] image,
+menuitem[type="radio"] image {
 	visibility: visible !important;
+}
+
+@media (-moz-gtk-non-native-menus) or (-moz-non-native-content-theme) {
+	menuitem:is([type="checkbox"], [checked="true"]) .menu-iconic-icon {
+		appearance: none !important;
+		-moz-default-appearance: none !important;
+	}
+
+	menuitem[type="radio"] .menu-iconic-icon {
+		appearance: none !important;
+		-moz-default-appearance: none !important;
+	}
 }
 
 menuitem[disabled="true"],
@@ -94,10 +99,6 @@ panel[type="arrow"] {
 	appearance: none !important;
 	background-color: transparent !important;
 	margin: 10px -18px 0 !important;
-}
-
-panel[type="autocomplete-richlistbox"] {
-	margin: 0 !important;
 }
 
 /* Style popovers */
@@ -203,7 +204,6 @@ menuitem, menupopup menu,
 	fill-opacity: 1 !important;
 }
 
-
 /* Menu buttons disabled */
 menuitem[disabled="true"], menupopup menu[disabled="true"],
 .subviewbutton[disabled="true"], .toolbarbutton-1[disabled="true"],
@@ -232,7 +232,8 @@ menupopup menu:not([disabled="true"]):is(:hover, [_moz-menuactive]),
 
 /* Style popover separators */
 toolbarseparator, menuseparator {
-	border-color: var(--gnome-popover-separator-color) !important;
+	appearance: none !important;
+/*	border-color: var(--gnome-popover-separator-color) !important;*/
 }
 #PlacesToolbar menupopup[placespopup="true"] menuseparator {
 	border-top: 1px solid var(--gnome-popover-separator-color) !important;
@@ -243,6 +244,7 @@ toolbarseparator, menuseparator {
 	border: 0 !important;
 }
 toolbarseparator:not([orient="vertical"]), menupopup menuseparator {
+	border-top: 1px solid var(--gnome-popover-separator-color) !important;
 	margin: 4px 0 !important;
 }
 toolbarseparator[orient="vertical"] {
@@ -262,13 +264,27 @@ panelview > toolbarseparator:not([orient="vertical"]),
 
 /* Auto complete popups */
 panel[type="autocomplete-richlistbox"] {
-	background: var(--gnome-menu-background) !important;
+	background: none !important;
 	border: 0 !important;
-	padding: 4px 0 !important;
+	padding: 0 !important;
 	color: var(--gnome-toolbar-color) !important;
+	margin: 0 !important;
 }
+
 .autocomplete-richlistbox {
 	margin: 0 !important;
+}
+
+#PopupAutoComplete > richlistbox > richlistitem {
+	min-height: 20px;
+	border: 0;
+	border-radius: 3px !important;
+	padding: 0 6px !important;
+}
+
+#PopupAutoComplete > richlistbox > richlistitem:hover {
+	background: var(--theme-primary-color) !important;
+	color: #ffffff !important;
 }
 
 .autocomplete-richlistitem:not([type="loginsFooter"]) {
