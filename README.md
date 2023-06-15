@@ -3,7 +3,7 @@
 
 <p align="center">A MacOSX Safari theme for Firefox 80+</p>
 
-![01](https://github.com/vinceliuice/WhiteSur-gtk-theme/blob/pictures/pictures/firefox.png?raw=true)
+![01](https://github.com/vinceliuice/WhiteSur-gtk-theme/blob/pictures/pictures/firefox.svg?raw=true)
 
 This is a bunch of CSS code to make Firefox look closer to MacOSX Safari theme.
 
