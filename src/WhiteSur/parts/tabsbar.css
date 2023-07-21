@@ -11,9 +11,12 @@
 }
 
 /* Tabs bar height */
-#tabbrowser-tabs,
-#tabbrowser-tabs arrowscrollbox {
+#tabbrowser-tabs {
 	--tab-min-height: 32px !important;
+}
+
+#tabbrowser-tabs:not([secondarytext-unsupported]) .tab-label-container {
+	max-height: 32px !important;
 }
 
 /* Extra margin for the first and last tabs */
@@ -64,7 +67,6 @@
 
 /* Tabs separators */
 .tabbrowser-tab {
-	border-width: 1px !important;
 	border-left: 1px solid transparent !important;
 }
 
@@ -73,9 +75,12 @@
 }
 
 .tabbrowser-tab[selected] + .tabbrowser-tab,
-.tabbrowser-tab:hover + .tabbrowser-tab,
-.tabbrowser-tab[first-tab] {
+.tabbrowser-tab:hover + .tabbrowser-tab {
 	border-color: transparent !important;
+}
+
+.tabbrowser-tab:first-of-type {
+	border-left: none !important;
 }
 
 /* Space between tabs */
@@ -107,7 +112,7 @@ tab[selected]:-moz-window-inactive {
 	justify-content: center !important;
 	align-items: center !important;
 	min-width: 44px !important;
-	padding: 0 8px !important;
+	padding: 2px 8px !important;
 }
 
 /* Fix custom info tab icon */
@@ -474,10 +479,4 @@ tab[selected]:-moz-window-inactive {
 [pictureinpicture] {
 	margin-inline-end: 4px !important;
 	margin-inline-start: 4px !important;
-}
-
-/* Fix too many tabs text align */
-.tab-close-button[pinned],
-#tabbrowser-tabs[closebuttons="activetab"]>#tabbrowser-arrowscrollbox>.tabbrowser-tab>.tab-stack>.tab-content>.tab-icon-stack[selected="true"] {
-	margin-left: auto !important;
 }

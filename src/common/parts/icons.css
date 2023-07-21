@@ -436,6 +436,10 @@ menu[disabled] > .menu-right {
 	list-style-image: url("../icons/picture-in-picture-open.svg") !important;
 }
 
+.persistent-storage-icon {
+	list-style-image: url("../icons/persistent-storage.svg") !important;
+}
+
 #permissions-granted-icon {
 	list-style-image: url("../icons/permissions-granted.svg") !important;
 }
@@ -703,12 +707,15 @@ treechildren::-moz-tree-image {
 	#bookmarks-toolbar-button .toolbarbutton-icon,
 	#bookmarks-toolbar-placeholder .toolbarbutton-icon,
 	#screenshot-button .toolbarbutton-icon,
+	#scrollbutton-up .toolbarbutton-icon,
+  #scrollbutton-down .toolbarbutton-icon,
 	#tracking-protection-icon,
 	#pageActionButton,
 	#permissions-granted-icon,
 	#tracking-protection-icon-animatable-image,
 	#reader-mode-button > .urlbar-icon,
 	#picture-in-picture-button > .urlbar-icon,
+	.persistent-storage-icon,
 	#star-button:not([starred]),
 	#context-bookmarkpage:not([starred]) .menu-iconic-icon,
 	#geo-sharing-icon[sharing], .geo-icon,
@@ -749,6 +756,11 @@ treechildren::-moz-tree-image {
 	.tab-icon-overlay[muted] {
 		list-style-image: url("../icons/audio-muted-symbolic-light.svg") !important;
 	}
+
+  #urlbar-go-button,
+  .search-go-button {
+	  list-style-image: url("../icons/go-next-symbolic-light.svg") !important;
+  }
 
 	#save-to-pocket-button,
 	#pocket-button, #pageAction-panel-pocket {
