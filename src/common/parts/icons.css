@@ -6,7 +6,15 @@
 .autoscroller {
 	--panel-background: transparent !important;
 	--panel-border-color: transparent !important;
-	background-image: url("chrome://global/skin/icons/autoscroll.svg") !important;
+	background: #fff url('chrome://global/skin/icons/autoscroll.svg') no-repeat center !important;
+	border-radius: 50% !important;
+	padding: 0 !important;
+}
+.autoscroller[scrolldir='NS'] {
+	background-image: url('chrome://global/skin/icons/autoscroll-vertical.svg') !important;
+}
+.autoscroller[scrolldir='EW'] {
+	background-image: url('chrome://global/skin/icons/autoscroll-horizontal.svg') !important;
 }
 
 /* Built-in firefox icons color */
@@ -100,6 +108,12 @@ arrowscrollbox[orient="horizontal"] {
 	margin: 2px 0;
 }
 
+/*translations-button*/
+#translations-button-icon {
+	list-style-image: url("../icons/translations.svg") !important;
+	margin-right: 0 !important;
+}
+
 /* Tree views */
 treechildren::-moz-tree-twisty {
 	list-style-image: url("../icons/pan-end-symbolic.svg") !important;
@@ -164,6 +178,11 @@ menuitem[type="radio"][disabled="true"] .menu-iconic-icon {
 /*menuitem[type="radio"]:not([disabled="true"]):hover .menu-iconic-icon {*/
 /*	filter: invert(100%) brightness(200%);*/
 /*}*/
+
+menuitem[type="radio"] .menu-iconic-icon,
+menuitem[type="checkbox"] .menu-iconic-icon {
+	-moz-appearance: none !important;
+}
 
 /* Sub menu arrow */
 .menu-right {
