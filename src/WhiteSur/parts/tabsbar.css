@@ -417,27 +417,27 @@ tab[selected]:-moz-window-inactive {
   toolbarbutton:not(#firefox-view-button),
   toolbarpaletteitem:not(#wrapper-firefox-view-button)
 ) + #tabbrowser-tabs {
-	border-inline-start: 1px solid var(--gnome-toolbar-border-color) !important;
-	padding-inline-start: 0 !important;
-	margin-inline-start: 0 !important;
-}
-
-#firefox-view-button {
-	border-radius: 0 !important;
-}
-
-#firefox-view-button > .toolbarbutton-icon {
-	filter: none !important;
-	box-shadow: none !important;
+  border-inline-start: 1px solid var(--gnome-toolbar-border-color) !important;
+  padding-inline-start: calc(var(--tab-overflow-pinned-tabs-width)) !important;
+  margin-inline-start: 0 !important;
 }
 
 #TabsToolbar #firefox-view-button {
+	border-radius: 0 !important;
 	padding: 0 4px !important;
+}
+
+#firefox-view-button > .toolbarbutton-icon {
+	box-shadow: none !important;
 }
 
 #TabsToolbar #firefox-view-button[open] {
 	background-color: var(--gnome-tabbar-tab-active-background) !important;
 	box-shadow: inset 0 -1px var(--gnome-toolbar-border-color) !important;
+}
+
+#TabsToolbar #firefox-view-button[open]:-moz-window-inactive {
+	background-color: var(--gnome-inactive-tabbar-tab-active-background) !important;
 }
 
 /* Create new container tab indicator */

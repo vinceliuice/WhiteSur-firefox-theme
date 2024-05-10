@@ -307,3 +307,8 @@ panel[type="autocomplete-richlistbox"] {
 .autocomplete-richlistitem:not([type="loginsFooter"]):hover .ac-site-icon {
 	fill: #fff !important;
 }
+
+/* Fixes for menu scrollbox */
+arrowscrollbox.menupopup-arrowscrollbox {
+	height: 100%;
+}
