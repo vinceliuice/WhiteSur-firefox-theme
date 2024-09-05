@@ -20,20 +20,23 @@ Run the following commands in the terminal:
 Usage:  `./install.sh`  **[OPTIONS...]**
 
 ```
-  -m, --monterey 
- Install 'Monterey' theme for Firefox and connect it to the current Firefox profiles. 
+  -m, --monterey
+   Install 'Monterey' theme for Firefox and connect it to the current Firefox profiles
 
-  -a, --alt 
- Install 'Monterey' theme alt version for Firefox and connect it to the current Firefox profiles. 
+  -a, --alt
+   Install 'Monterey' theme alt version for Firefox and connect it to the current Firefox profiles
 
-  -e, --edit 
- Edit 'WhiteSur' theme for Firefox settings and also connect the theme to the current Firefox profiles. 
+  -A, --adaptive
+   Install Firefox adaptive color version...
 
-  -r, --remove, --revert 
- Remove themes, do the opposite things of install and connect. 
+  -e, --edit
+   Edit 'WhiteSur' theme for Firefox settings and also connect the theme to the current Firefox profiles
 
-  -h, --help 
- Show this help. 
+  -r, --remove, --revert
+   Remove themes, do the opposite things of install and connect
+
+  -h, --help
+   Show this help
 ```
 
 if you want to edit the style then:

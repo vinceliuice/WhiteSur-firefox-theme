@@ -17,18 +17,6 @@ toolbarspring {
 	min-width: 360px !important;
 }
 
-#urlbar-background {
-	box-shadow: none !important;
-	border: 0 !important;
-	background: transparent !important;
-	border-radius: 8px !important;
-	padding: 0 !important;
-}
-
-#urlbar:-moz-window-inactive {
-	border-color: var(--gnome-inactive-headerbar-background) !important;
-}
-
 #urlbar[focused="true"]:not([suppress-focus-border]) > #urlbar-background {
 	outline-color: transparent !important;
 }
@@ -49,6 +37,13 @@ toolbarspring {
 	min-width: 360px !important;
 }
 
+#urlbar-background {
+	box-shadow: none !important;
+	border: none !important;
+	background: none !important;
+	border-radius: 8px !important;
+}
+
 #urlbar[breakout][breakout-extend] {
 	left: 0 !important;
 	top: 0 !important;
@@ -56,16 +51,26 @@ toolbarspring {
 	z-index: 5 !important;
 	padding: 0 !important;
 	border-radius: 8px !important;
+	outline: 2px solid var(--gnome-focused-urlbar-border-color) !important;
+	outline-offset: -2px;
+	-moz-outline-radius: 8px;
+	transition: outline 100ms ease-out;
 }
+
 #urlbar[breakout][breakout-extend][open] {
 	height: auto !important;
 	max-height: unset !important;
 }
+
 #urlbar[breakout][breakout-extend] #urlbar-input-container,
 #urlbar[breakout][breakout-extend] .urlbar-input-container {
 	height: 32px !important;
 	max-height: 32px !important;
 	padding: 0 !important;
+}
+
+#urlbar:-moz-window-inactive {
+	border-color: var(--gnome-inactive-headerbar-background) !important;
 }
 
 #urlbar-input {
@@ -186,7 +191,10 @@ toolbarspring {
 	border-radius: 5px !important;
 }
 
-.urlbar-page-action, #urlbar-go-button, .search-go-button,
+.urlbar-page-action,
+#urlbar-go-button,
+.urlbar-go-button,
+.search-go-button,
 #tracking-protection-icon-container {
 	width: 28px !important;
 	height: 26px !important;
@@ -204,10 +212,21 @@ toolbarspring {
 	margin-left: 0 !important;
 }
 
+#tracking-protection-icon-container:hover,
+.urlbar-page-action:hover,
+#urlbar-go-button:hover,
+.urlbar-go-button:hover,
+.search-go-button:hover,
 #identity-box:hover {
 	background: var(--gnome-headerbar-button-hover-background) !important;
 }
 
+#tracking-protection-icon-container:active,
+#tracking-protection-icon-container[open="true"],
+.urlbar-page-action:active,
+#urlbar-go-button:active,
+.urlbar-go-button:active,
+.search-go-button:active,
 #identity-box:active {
 	background: var(--gnome-headerbar-button-active-background) !important;
 }

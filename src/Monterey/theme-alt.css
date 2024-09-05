@@ -11,11 +11,11 @@
 @import "parts/popups.css";
 @import "parts/tabsbar-alt.css";
 @import "parts/findbar.css";
+@import "parts/sidebar.css";
 @import "parts/dialogs.css";
 @import "parts/notification.css";
 @import "parts/video-player.css";
 @import "parts/remove-white-flash.css";
-@import "parts/custom-icons.css";
 @import "parts/icons.css";
 @import "colors/light.css";
 @import "colors/dark.css";

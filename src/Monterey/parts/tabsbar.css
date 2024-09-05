@@ -2,6 +2,11 @@
 
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
+:root[tabsintitlebar] #nav-bar toolbaritem,
+#nav-bar-customization-target {
+	-moz-window-dragging: drag;
+}
+
 tab > stack {
 	margin: 0 3px !important;
 }
@@ -101,12 +106,6 @@ tab[selected]:-moz-window-inactive .tab-label {
 
 .tabbrowser-tab:hover > .tab-stack > .tab-content > .tab-close-button {
 	visibility: visible;
-}
-
-@media (prefers-color-scheme: dark) {
-	.tab-close-button {
-		list-style-image: url("../icons/window-close-symbolic-light.svg") !important;
-	}
 }
 :root:-moz-window-inactive .tab-close-button:not(#hack) {
 	opacity: .18 !important;
