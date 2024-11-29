@@ -7,8 +7,18 @@
 	-moz-window-dragging: drag;
 }
 
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]):not([orient="vertical"]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) {
+	margin-inline-start: 6px !important;
+}
+
 tab > stack {
 	margin: 0 3px !important;
+}
+
+/* Tabs bar height */
+#tabbrowser-tabs {
+	--tab-min-height: 32px !important;
+	--tabstrip-min-height: 32px !important;
 }
 
 .tabbrowser-tab,
