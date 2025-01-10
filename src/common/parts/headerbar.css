@@ -107,6 +107,10 @@ toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {
 	transition-duration: 100ms;
 }
 
+#urlbar[breakout] {
+	position: static !important; 
+}
+
 #urlbar[breakout][breakout-extend] #urlbar-input-container,
 #urlbar[breakout][breakout-extend] #urlbar-input-container:hover,
 #urlbar[breakout][breakout-extend] .urlbar-input-container,
