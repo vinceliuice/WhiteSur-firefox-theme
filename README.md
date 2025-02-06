@@ -21,6 +21,8 @@ Run the following commands in the terminal:
 ./install.sh
 ```
 
+INFO: Do not run it with sudo, or it will install in root user folder !
+
 Usage:  `./install.sh`  **[OPTIONS...]**
 
 ```
