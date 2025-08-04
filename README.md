@@ -26,23 +26,31 @@ INFO: Do not run it with sudo, or it will install in root user folder !
 Usage:  `./install.sh`  **[OPTIONS...]**
 
 ```
-  -m, --monterey
-   Install 'Monterey' theme for Firefox and connect it to the current Firefox profiles
+OPTIONS:
 
-  -a, --alt
-   Install 'Monterey' theme alt version for Firefox and connect it to the current Firefox profiles
+    -m, --monterey [3+3|3+4|3+5|4+3|4+4|4+5|5+3|5+4|5+5] :Topbar buttons (not window control buttons) number: 'a+b'
+ .  a: urlbar left side buttons number, b: urlbar right side buttons number
 
-  -A, --adaptive
-   Install Firefox adaptive color version...
 
-  -e, --edit
-   Edit 'WhiteSur' theme for Firefox settings and also connect the theme to the current Firefox profiles
+    -a, --alt  
+ .  Install 'Monterey' theme alt version for Firefox
 
-  -r, --remove, --revert
-   Remove themes, do the opposite things of install and connect
 
-  -h, --help
-   Show this help
+    -A, --adaptive  
+ .  Install Firefox adaptive color version...
+
+
+    -e, --edit [(monterey/alt)|adaptive] 
+ .  Edit 'WhiteSur' theme for Firefox settings and also connect the theme to the current Firefox profiles
+
+
+    -r, --remove, --revert  
+ .  Remove themes, do the opposite things of install and connect
+
+
+    -h, --help  
+ .  Show this help
+
 ```
 
 if you want to edit the style then:

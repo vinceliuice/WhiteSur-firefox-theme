@@ -33,6 +33,8 @@ FLOORP_FLATPAK_THEME_DIR="${MY_HOME}/.var/app/one.ablaze.floorp/.floorp/themes"
 # Other
 adaptive=''
 edit_firefox="false"
+left_button="3"
+right_button="3"
 
 export c_default="\033[0m"
 export c_blue="\033[1;34m"
@@ -79,17 +81,17 @@ helpify_title() {
 }
 
 helpify() {
-  printf "\n  ${c_magenta}%s\n   ${c_cyan}%s\n" "${1}" "${2}"
+  printf "\n    ${c_blue}%s ${c_green}%s ${c_magenta}%s\n .  ${c_cyan}%s\n\n${c_default}" "${1}" "${2}" "${3}" "${4}"
 }
 
 usage() {
   helpify_title
-  helpify "-m, --monterey"          "Install 'Monterey' theme for Firefox and connect it to the current Firefox profiles"
-  helpify "-a, --alt"               "Install 'Monterey' theme alt version for Firefox and connect it to the current Firefox profiles"
-  helpify "-A, --adaptive"          "Install Firefox adaptive color version..."
-  helpify "-e, --edit"              "Edit '${THEME_NAME}' theme for Firefox settings and also connect the theme to the current Firefox profiles"
-  helpify "-r, --remove, --revert"  "Remove themes, do the opposite things of install and connect"
-  helpify "-h, --help"              "Show this help"
+  helpify "-m, --monterey" "[3+3|3+4|3+5|4+3|4+4|4+5|5+3|5+4|5+5]" ":Topbar buttons (not window control buttons) number: 'a+b'" "a: urlbar left side buttons number, b: urlbar right side buttons number"
+  helpify "-a, --alt"      ""    ""     "Install 'Monterey' theme alt version for Firefox"
+  helpify "-A, --adaptive" ""    ""     "Install Firefox adaptive color version..."
+  helpify "-e, --edit"     "[(monterey/alt)|adaptive]"    ""     "Edit '${THEME_NAME}' theme for Firefox settings and also connect the theme to the current Firefox profiles"
+  helpify "-r, --remove, --revert" "" "" "Remove themes, do the opposite things of install and connect"
+  helpify "-h, --help"      ""    ""     "Show this help"
 }
 
 install_firefox_theme() {
@@ -106,6 +108,11 @@ install_firefox_theme() {
   cp -rf "${SRC_DIR}"/userChrome-"${name}${adaptive}".css                                     "${target}"/userChrome.css
   [[ -f "${TARGET_DIR}"/userContent.css ]] && mv "${target}"/userContent.css                  "${target}"/userContent.css.bak
   cp -rf "${SRC_DIR}"/userContent-"${name}${adaptive}".css                                    "${target}"/userContent.css
+
+  if [[  "${name}" == 'Monterey' ]]; then
+    sed -i "s/left_header_button_3/left_header_button_${left_button}/g"                       "${target}"/userChrome.css
+    sed -i "s/right_header_button_3/right_header_button_${right_button}/g"                    "${target}"/userChrome.css
+  fi
 
   if [[ "${alt}" == 'true' && "${name}" == 'Monterey' ]]; then
     cp -rf "${SRC_DIR}"/userChrome-Monterey-alt"${adaptive}".css                              "${target}"/userChrome.css
@@ -163,7 +170,48 @@ while [[ $# -gt 0 ]]; do
     -m|--monterey)
       monterey="true"
       THEME_NAME="Monterey"
-      shift ;;
+      shift
+            for button in "${@}"; do
+              case "${button}" in
+                3+3)
+                  left_button="3"
+                  right_button="3"
+                  shift ;;
+                3+4)
+                  left_button="3"
+                  right_button="4"
+                  shift ;;
+                3+5)
+                  left_button="3"
+                  right_button="5"
+                  shift ;;
+                4+3)
+                  left_button="4"
+                  right_button="3"
+                  shift ;;
+                4+4)
+                  left_button="4"
+                  right_button="4"
+                  shift ;;
+                4+5)
+                  left_button="4"
+                  right_button="5"
+                  shift ;;
+                5+3)
+                  left_button="5"
+                  right_button="3"
+                  shift ;;
+                5+4)
+                  left_button="5"
+                  right_button="4"
+                  shift ;;
+                5+5)
+                  left_button="5"
+                  right_button="5"
+                  shift ;;
+              esac
+            done
+            prompt -s "Left side topbar button number: $left_button, right side topbar button number: $right_button.\n" ;;
     -a|--alt)
       alt="true"
       monterey="true"
