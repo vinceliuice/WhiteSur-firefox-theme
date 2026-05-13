@@ -18,14 +18,14 @@
 	--theme-primary-active-color: #6584f3;
 
 	/* Toolbars */
-	--gnome-toolbar-background: #1e1e1e;
-	--gnome-tabstoolbar-background: #1e1e1e;
-	--gnome-findbar-background: #282828;
-	--gnome-toolbar-color: #ffffff;
-	--gnome-toolbar-icon-fill: #ffffff;
+	--gnome-toolbar-background: var(--lwt-accent-color, #1e1e1e);
+	--gnome-tabstoolbar-background: var(--lwt-accent-color, #1e1e1e);
+	--gnome-findbar-background: var(--lwt-accent-color, #282828);
+	--gnome-toolbar-color: var(--toolbar-color, #ffffff);
+	--gnome-toolbar-icon-fill: var(--toolbar-color, #ffffff);
 	--gnome-toolbar-border-color: #070707;
-	--gnome-inactive-toolbar-color: rgba(255, 255, 255, 0.35);
-	--gnome-inactive-toolbar-background: #1e1e1e;
+	--gnome-inactive-toolbar-color: color-mix(in srgb, var(--gnome-toolbar-color) 45%, var(--gnome-toolbar-background));
+	--gnome-inactive-toolbar-background: var(--lwt-accent-color, #1e1e1e);
 	--gnome-inactive-toolbar-border-color: #121212;
 
 	/* Sidebar */
@@ -44,10 +44,10 @@
 	--gnome-popover-separator-color: rgba(255, 255, 255, 0.08);
 
 	/* Header bar */
-	--gnome-headerbar-background: #1e1e1e;
+	--gnome-headerbar-background: var(--lwt-accent-color, #1e1e1e);
 	--gnome-headerbar-border-color: #070707;
 	--gnome-headerbar-box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
-	--gnome-inactive-headerbar-background: #1e1e1e;
+	--gnome-inactive-headerbar-background: var(--lwt-accent-color, #1e1e1e);
 	--gnome-inactive-headerbar-border-color: #202020;
 	--gnome-inactive-headerbar-box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
 
