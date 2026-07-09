@@ -46,10 +46,15 @@ toolbarspring {
 
 #urlbar-background,
 .urlbar-background {
-	box-shadow: none !important;
-	border: none !important;
-	background: none !important;
+	box-shadow: var(--gnome-urlbar-box-shadow) !important;
+	border: 1px solid var(--gnome-urlbar-border-color) !important;
+	background: var(--gnome-urlbar-background) !important;
 	border-radius: 8px !important;
+}
+
+#urlbar:hover > #urlbar-background,
+#urlbar:hover > .urlbar-background {
+	border-color: var(--gnome-hover-urlbar-border-color) !important;
 }
 
 #urlbar[breakout][breakout-extend] {
@@ -75,14 +80,23 @@ toolbarspring {
 	padding: 0 !important;
 }
 
-#urlbar:-moz-window-inactive {
-	border-color: var(--gnome-inactive-headerbar-background) !important;
+#urlbar:-moz-window-inactive > #urlbar-background,
+#urlbar:-moz-window-inactive > .urlbar-background {
+	background: var(--gnome-inactive-urlbar-background) !important;
+	border-color: var(--gnome-inactive-urlbar-border-color) !important;
+	box-shadow: var(--gnome-inactive-urlbar-box-shadow) !important;
 }
 
 #urlbar-input,
 .urlbar-input {
+	color: var(--gnome-urlbar-color) !important;
 	text-align: center !important;
 	padding: 0 28px 0 0 !important;
+}
+
+#urlbar:-moz-window-inactive #urlbar-input,
+#urlbar:-moz-window-inactive .urlbar-input {
+	color: var(--gnome-inactive-urlbar-color) !important;
 }
 
 /* URL bar results */
@@ -99,7 +113,7 @@ toolbarspring {
 
 @media (prefers-color-scheme: dark) {
 	.urlbarView {
-		border: 1px solid rgba(255, 255, 255, 0.1) !important;
+		border: 1px solid color-mix(in srgb, currentColor 10%, transparent) !important;
 	}
 }
 
