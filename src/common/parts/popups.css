@@ -433,7 +433,8 @@ panel[type="autocomplete-richlistbox"] {
 	fill: #fff !important;
 }
 
-/* Fixes for menu scrollbox */
+/* Keep tall menu popups within the viewport so they can scroll. */
 arrowscrollbox.menupopup-arrowscrollbox {
-	height: 100%;
+	height: auto !important;
+	max-height: 80vh !important;
 }
