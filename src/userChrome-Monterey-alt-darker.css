@@ -35,5 +35,8 @@
 /* Hide window buttons (close/min/max) in maximized windows */
 /*@import "Monterey/hide-window-buttons.css"; /**/
 
+/* Tabs outline and animation */
+/*@import "Monterey/tabs-outline.css"; /**/
+
 /* Import your custom stylesheet */
 @import "customChrome.css"; /**/

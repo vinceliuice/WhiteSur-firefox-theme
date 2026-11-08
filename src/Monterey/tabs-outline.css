@@ -1,0 +1,48 @@
+/* all tabs background */
+  .tabbrowser-tab:not([selected="true"]) .tab-background {
+    border: 2px solid color-mix(in srgb, currentColor 5%, transparent) !important;
+    background: color-mix(in srgb, currentColor 4%, transparent) !important;
+    }
+
+/* active tab background */
+  #TabsToolbar .tabbrowser-tab[selected] .tab-background {
+    background-color: color-mix(in srgb, currentColor 15%, transparent) !important;
+    border: 2px solid color-mix(in srgb, currentColor 30%, transparent) !important;
+    border-radius: 10px !important;
+    
+    transform: scale(1.03) !important;
+    }
+
+/* hover tabs background */
+  #TabsToolbar .tabbrowser-tab:not([selected]):hover .tab-background {
+    transform: scale(1.01) !important;
+    border-radius: 8px !important;
+    }
+
+/* active tab margin */
+  .tabbrowser-tab[selected] {
+    margin-inline: 8px !important; 
+    }
+
+/* hover tabs margin */
+  .tabbrowser-tab:not([selected]):hover {
+    margin-inline: 3px !important;
+    }
+
+/* margin animation */
+  .tabbrowser-tab {
+    transition: margin-inline 0.3s ease-in-out, min-width 0.2s ease-in-out, max-width 0.2s ease-in-out !important;
+    }
+
+/* tab animation */
+  .tabbrowser-tab .tab-background {
+    transition: transform 0.25s ease-in-out, border-radius 0.25s ease-in-out !important;
+    transform-origin: center center !important; 
+    }
+
+/* enable overflow */
+  #tabbrowser-tabs,
+  #tabbrowser-arrowscrollbox,
+  .tabbrowser-tab {
+    overflow: visible !important;
+    }
